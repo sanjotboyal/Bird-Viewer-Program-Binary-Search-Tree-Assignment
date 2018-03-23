@@ -5,8 +5,10 @@
  */
 package birds;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.MenuBar;
@@ -30,7 +32,35 @@ public class BirdsController implements Initializable {
     
     public void fillDictionary(){
         
+        loadDictionary("BirdsDatabase.txt");
     }
+    
+    //Add to Ordered Dictionary 
+    public void loadDictionary(String fileName){
+        Scanner input;
+        String size,name,description;
+        try{
+        input = new Scanner(new File(fileName));
+        
+        while(input.hasNext()){
+            size = input.nextLine();
+            name = input.nextLine();
+            description = input.nextLine();
+            
+            DataKey key = new DataKey(name,Integer.parseInt(size));
+            BirdRecord record = new BirdRecord(key,description,"/src/sound/"+name+".jpg","/src/images/"+name+".mp3");
+            System.out.println("LOL: " + record.getImage());
+        }
+        
+        }catch(Exception e){
+            System.out.println("Failed find: " + e.toString());
+        }
+        
+        
+   
+    
+    }
+    
     
 
     @Override
