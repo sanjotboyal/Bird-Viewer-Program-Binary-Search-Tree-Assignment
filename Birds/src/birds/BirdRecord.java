@@ -5,8 +5,8 @@ package birds;
  * parts: a DataKey and the data associated with the DataKey.
  */
 public class BirdRecord {
-    DataKey key;
-    String about, sound, image;
+    private DataKey key;
+    private String about, sound, image;
 
  
 
@@ -33,6 +33,16 @@ public class BirdRecord {
     public String getImage(){
         return image;
     }
+    
+    public DataKey getDataKey(){
+        return key;
+    }
+    
+    public void setDataKey (DataKey key){
+        this.key = key;
+    }
+    
+   
     
 
 

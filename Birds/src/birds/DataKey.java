@@ -1,8 +1,8 @@
 package birds;
 
 public class DataKey {
-    String birdName;
-    int birdSize;
+    private String birdName;
+    private int birdSize;
 
     // default constructor
     public DataKey() {
@@ -37,8 +37,12 @@ public class DataKey {
            return -1;
        }else if((this.birdSize == k.birdSize) && (this.birdName.charAt(0) < k.birdName.charAt(0))){
            return -1;
-       }else{
+       }else if ((this.birdSize > k.birdSize)){
            return 1;
+       }else if((this.birdSize == k.birdSize) && (this.birdName.charAt(0) > k.birdName.charAt(0))){
+           return 1;
+       }else{
+           return -2;
        }
     }
         

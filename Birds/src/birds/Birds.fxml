@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -8,17 +11,87 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="971.0" style="-fx-background-image: url(&quot;file:src/Birds/WesternBackground.png&quot;);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="birds.BirdsController">
-   <top>
-      <MenuBar fx:id="mainMenu" BorderPane.alignment="CENTER">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="971.0" style="-fx-background-image: url(&quot;file:src/Birds/WesternBackground.png&quot;);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="birds.BirdsController">
+   <children>
+      <MenuBar fx:id="mainMenu" prefHeight="32.0" prefWidth="971.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem mnemonicParsing="false" onAction="#fillDictionary" text="Fill Dictionary" />
-              <MenuItem mnemonicParsing="false" onAction="#exit" text="Close" />
+              <MenuItem mnemonicParsing="false" onAction="#fillDictionary" text="Fill Dictionary" />
+                  <MenuItem mnemonicParsing="false" onAction="#exit" text="Close" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
-   </top>
-</BorderPane>
+      <Pane fx:id="controlDIV" layoutY="58.0" prefHeight="75.0" prefWidth="971.0">
+         <children>
+            <Button fx:id="firstBtn" layoutX="306.0" layoutY="22.0" mnemonicParsing="false" onAction="#first" prefHeight="13.0" prefWidth="79.0" text="First" textAlignment="CENTER" />
+            <Button fx:id="nextBtn" layoutX="415.0" layoutY="22.0" mnemonicParsing="false" onAction="#next" prefHeight="13.0" prefWidth="79.0" text="Next" textAlignment="CENTER" />
+            <Button fx:id="lastBtn" layoutX="627.0" layoutY="22.0" mnemonicParsing="false" onAction="#last" prefHeight="13.0" prefWidth="79.0" text="Last" textAlignment="CENTER" />
+            <Button fx:id="previousBtn" layoutX="518.0" layoutY="22.0" mnemonicParsing="false" onAction="#previous" prefHeight="13.0" prefWidth="79.0" text="Previous" textAlignment="CENTER" />
+         </children>
+      </Pane>
+      <BorderPane fx:id="contentDIV" layoutX="71.0" layoutY="138.0" prefHeight="152.0" prefWidth="813.0">
+         <top>
+            <Text fx:id="birdName" fill="#1706ff" strokeType="OUTSIDE" strokeWidth="0.0" text="birdName" BorderPane.alignment="TOP_LEFT">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets left="30.0" />
+               </BorderPane.margin>
+            </Text>
+         </top>
+         <left>
+            <Text fx:id="birdAbout" strokeType="OUTSIDE" strokeWidth="0.0" text="Common throughout the continental United States, southern Canada, Mexico, and urban areas throughout the world. These birds thrive in human habitats, and are most populous in large cities, but can also be found in suburban and rural locations, agricultural lands and open shrub. Pigeons do not migrate." wrappingWidth="520.0" BorderPane.alignment="CENTER_LEFT">
+               <BorderPane.margin>
+                  <Insets left="30.0" />
+               </BorderPane.margin>
+            </Text>
+         </left>
+         <right>
+            <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#delete" prefHeight="18.0" prefWidth="95.0" text="Delete" textFill="WHITE" BorderPane.alignment="CENTER_RIGHT">
+               <BorderPane.margin>
+                  <Insets bottom="10.0" right="30.0" />
+               </BorderPane.margin>
+            </Button>
+         </right>
+      </BorderPane>
+      <BorderPane fx:id="mediaDIV" layoutX="79.0" layoutY="295.0" maxWidth="-Infinity" prefHeight="132.0" prefWidth="813.0">
+         <left>
+            <ImageView fx:id="birdImage" fitHeight="352.0" fitWidth="324.0" pickOnBounds="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../images/Common%20Myna.jpg" />
+               </image>
+            </ImageView>
+         </left>
+         <center>
+            <Button fx:id="playBtn" mnemonicParsing="false" onAction="#play" prefHeight="105.0" prefWidth="105.0" text="Play" textFill="WHITE" BorderPane.alignment="CENTER_LEFT">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets left="110.0" />
+               </BorderPane.margin>
+            </Button>
+         </center>
+         <right>
+            <Button fx:id="stopBtn" mnemonicParsing="false" onAction="#stop" prefHeight="105.0" prefWidth="105.0" text="Stop" textFill="WHITE" BorderPane.alignment="CENTER_RIGHT">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets right="90.0" />
+               </BorderPane.margin>
+            </Button>
+         </right></BorderPane>
+      <Pane fx:id="searchDIV" layoutX="72.0" layoutY="655.0" prefHeight="61.0" prefWidth="813.0">
+         <children>
+            <Text layoutX="98.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bird Name" />
+            <TextField fx:id="nameEntry" layoutX="176.0" layoutY="15.0" />
+            <Text layoutX="388.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bird Size" />
+            <ComboBox fx:id="sizeBox" layoutX="458.0" layoutY="14.0" prefWidth="150.0" />
+            <Button fx:id="findBtn" layoutX="664.0" layoutY="14.0" mnemonicParsing="false" onAction="#find" prefHeight="31.0" prefWidth="79.0" text="Find" />
+         </children></Pane>
+   </children>
+</AnchorPane>
