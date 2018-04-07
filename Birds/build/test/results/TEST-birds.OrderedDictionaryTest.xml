@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="2" hostname="Sanjot" name="birds.OrderedDictionaryTest" skipped="0" tests="7" time="0.11" timestamp="2018-04-07T17:17:55">
+<testsuite errors="0" failures="0" hostname="Sanjot" name="birds.OrderedDictionaryTest" skipped="0" tests="7" time="0.074" timestamp="2018-04-07T22:32:51">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="CA" />
@@ -60,7 +60,7 @@
     <property name="copylibs.rebase" value="true" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner birds.OrderedDictionaryTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\sanjot\Documents\Semester 2\SE 2205\SE2205B-Assignment2\Birds\build\test\results\TEST-birds.OrderedDictionaryTest.xml crashfile=C:\Users\sanjot\Documents\Semester 2\SE 2205\SE2205B-Assignment2\Birds\build\junitvmwatcher3460698860948145303.properties propsfile=C:\Users\sanjot\Documents\Semester 2\SE 2205\SE2205B-Assignment2\Birds\build\junit3557551651105778897.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner birds.OrderedDictionaryTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\sanjot\Documents\Semester 2\SE 2205\SE2205B-Assignment2\Birds\build\test\results\TEST-birds.OrderedDictionaryTest.xml crashfile=C:\Users\sanjot\Documents\Semester 2\SE 2205\SE2205B-Assignment2\Birds\build\junitvmwatcher5894498319891478263.properties propsfile=C:\Users\sanjot\Documents\Semester 2\SE 2205\SE2205B-Assignment2\Birds\build\junit8244867397903991958.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -431,21 +431,13 @@
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
     <property name="libs.javaee-web-api-7.0.javadoc" value="C:\Program Files\NetBeans 8.2\enterprise\docs\javaee-doc-api.jar" />
   </properties>
-  <testcase classname="birds.OrderedDictionaryTest" name="testFind" time="0.0" />
+  <testcase classname="birds.OrderedDictionaryTest" name="testFind" time="0.002" />
   <testcase classname="birds.OrderedDictionaryTest" name="testLargest" time="0.0" />
   <testcase classname="birds.OrderedDictionaryTest" name="testSmallest" time="0.0" />
   <testcase classname="birds.OrderedDictionaryTest" name="testInsert" time="0.0" />
-  <testcase classname="birds.OrderedDictionaryTest" name="testSuccessor" time="0.0">
-    <failure message="Fail successor test. If the key doesn&apos;t exist." type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Fail successor test. If the key doesn&apos;t exist.
-	at birds.OrderedDictionaryTest.testSuccessor(OrderedDictionaryTest.java:132)
-</failure>
-  </testcase>
-  <testcase classname="birds.OrderedDictionaryTest" name="testRemove" time="0.0" />
-  <testcase classname="birds.OrderedDictionaryTest" name="testPredecessor" time="0.0">
-    <failure message="Fail successor test. If the key doesn&apos;t exist." type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Fail successor test. If the key doesn&apos;t exist.
-	at birds.OrderedDictionaryTest.testPredecessor(OrderedDictionaryTest.java:166)
-</failure>
-  </testcase>
+  <testcase classname="birds.OrderedDictionaryTest" name="testSuccessor" time="0.0" />
+  <testcase classname="birds.OrderedDictionaryTest" name="testRemove" time="0.001" />
+  <testcase classname="birds.OrderedDictionaryTest" name="testPredecessor" time="0.0" />
   <system-out><![CDATA[find
 largest
 smallest
@@ -453,6 +445,7 @@ insert
 successor
 remove
 predecessor
+Eagle
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

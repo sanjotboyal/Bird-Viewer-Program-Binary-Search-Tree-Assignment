@@ -9,19 +9,22 @@ package birds;
  *
  * @author sanjot
  */
+
+//Node class
 public class Node{
     private BirdRecord data;
     private Node left;
     private Node right;
     private Node parent;
     
+    //Constructors 
     public Node(){
         this(null);
     }
     public Node(BirdRecord data){
         this(data,null,null,null);
     }
-    
+    //Stores BirdRecord, left, right and parent references
     public Node(BirdRecord data, Node left, Node right, Node Parent){
         this.data = data;
         this.left = left;

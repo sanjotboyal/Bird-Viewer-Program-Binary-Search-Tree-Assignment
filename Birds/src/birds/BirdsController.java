@@ -76,8 +76,10 @@ public class BirdsController implements Initializable {
         stage.close();
     }
     
+    //Fill Dictionary calls load with the textfile to load from
     public void fillDictionary(){
         loadDictionary("BirdsDatabase.txt");
+        //starts off with the first bird and updates the screen
         try{
         current = tree.smallest();
         updateScreen(current);
@@ -85,11 +87,11 @@ public class BirdsController implements Initializable {
         }catch(Exception e){
             displayError(e.toString());
         }
-        
+        //shows the screen 
         show(true);
     }
     
-    //Add to Ordered Dictionary 
+    //Loads text file- adds to tree
     public void loadDictionary(String fileName){
         Scanner input;
         String size,name,description;
@@ -106,6 +108,7 @@ public class BirdsController implements Initializable {
             BirdRecord record = new BirdRecord(key,description,"src/sounds/"+name+".mp3","images/"+name+".jpg");
             
             try{
+                //records added to tree
                 tree.insert(record);
             }catch(DictionaryException e){
                 displayError(e.toString());
@@ -118,7 +121,9 @@ public class BirdsController implements Initializable {
         }
     }
     
+    //displays the current birdRecord on screen
     public void updateScreen(BirdRecord R){
+        stop();
         birdName.setText(R.getDataKey().getBirdName());
         birdAbout.setText(R.getAbout());
         
@@ -130,6 +135,7 @@ public class BirdsController implements Initializable {
         }
     }
     
+    //initial styling of the application look
     public void setStyling(){
         firstBtn.setStyle("-fx-background-color: #ADFF2F;");
         nextBtn.setStyle("-fx-background-color: #ADFF2F;");
@@ -145,7 +151,9 @@ public class BirdsController implements Initializable {
         
     }
     
+    //Components enable/disable control
     public void show(boolean value){
+        stop();
         controlDIV.setDisable(!value);
         controlDIV.setVisible(value);
         
@@ -158,9 +166,10 @@ public class BirdsController implements Initializable {
         searchDIV.setDisable(!value);
         searchDIV.setVisible(value); 
         
+        
     }
     
-    
+    //first in the tree displayed on screen
     public void first(){
         try{
             current = tree.smallest();
@@ -170,28 +179,31 @@ public class BirdsController implements Initializable {
         }
     }
     
+    //Goes to the next in tree
     public void next(){
         try{
+            //sets current to next
             current = tree.successor(current.getDataKey());
-            stop();
+            //stops and sound if it was playing
+            //updates screen
             updateScreen(current);
         }catch(DictionaryException e){
-            System.out.println(e.toString());
             displayError(e.toString());
         }
         
     }
     
+    //Goes to the previous in tree
     public void previous(){
         try{
             current = tree.predecessor(current.getDataKey());
-            stop();
             updateScreen(current);
         }catch(DictionaryException e){
             displayError(e.toString());
         }
     }
     
+    //Goes to the last (LARGEST) in tree
     public void last(){
         try{
             current = tree.largest();
@@ -202,19 +214,23 @@ public class BirdsController implements Initializable {
         
     }
     
+    //Delete
     public void delete() throws DictionaryException{
+        //Uses temp to find the next or previous for setting current to after delete takes place
+     
         temp = null;
         try{
             BirdRecord next = tree.successor(current.getDataKey());
             temp = next;
         }catch(DictionaryException e){
-        }try{
-            BirdRecord prev = tree.predecessor(current.getDataKey());
-            temp = prev;
-        }catch(DictionaryException e){
+            try{
+                BirdRecord prev = tree.predecessor(current.getDataKey());
+                temp = prev;
+            }catch(DictionaryException ex){
+            }
         }
         
-        
+        //Remove the element from the tree
         try{
             tree.remove(current.getDataKey());
         }catch(DictionaryException e){
@@ -223,11 +239,14 @@ public class BirdsController implements Initializable {
         
         
         if(!tree.isEmpty()){
+            //if there is a previous or next: set current to that
            if(temp !=null){
                current = temp;
            }
+           //update screen 
            updateScreen(current);
         }else{
+            //tree is empty: set show to false and display the error: no birds to show
             show(false);
             displayError("No more birds in the database to show");
         }
@@ -235,6 +254,7 @@ public class BirdsController implements Initializable {
     }
     
     public void play(){
+        
         playBtn.setOpacity(0.7);
         stopBtn.setOpacity(1.0);
         
@@ -243,6 +263,8 @@ public class BirdsController implements Initializable {
         Media hit = new Media(new File(soundFile).toURI().toString());
         mediaPlayer  = new MediaPlayer(hit);
         mediaPlayer.play();
+        
+       
 
         
     }

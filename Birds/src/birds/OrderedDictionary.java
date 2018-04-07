@@ -193,7 +193,12 @@ public class OrderedDictionary implements OrderedDictionaryADT {
                 throw new DictionaryException ("There is no successor for the given record key");
             }
         }else{
-            throw new DictionaryException ("There is no successor for the given record key");
+            //only runs for tests (if data key isnt there: still gets successor)
+            BirdRecord temp = new BirdRecord(k,null,null,null);
+            insert(temp);
+            Node tempSuccess = successorHelper(findNode(root,temp.getDataKey()));
+            remove(temp.getDataKey());
+            return tempSuccess.getData();
         }
     }
     
@@ -235,17 +240,24 @@ public class OrderedDictionary implements OrderedDictionaryADT {
                 throw new DictionaryException("There is no predecessor for the given record key");
             }
         }else{
-            throw new DictionaryException("There is no predecessor for the given record key");
+            //only runs for tests (if data key isnt there: still gets predeccessor)
+            BirdRecord temps = new BirdRecord(k,null,null,null);
+            insert(temps);
+            Node tempPrevious = preHelper(findNode(root,temps.getDataKey()));
+            System.out.println(tempPrevious.getData().getDataKey().getBirdName());
+            remove(temps.getDataKey());
+            return tempPrevious.getData();
         }
     }
     
     private Node preHelper(Node node){
-        if(node == null){
+        if(node == null){   
             return null;
         }
         if(node.getLeft() !=null){
             return largestRec(node.getLeft());
         }
+        
         Node parent = node.getParent();
         Node b = parent;
         Node a = node;
@@ -254,6 +266,8 @@ public class OrderedDictionary implements OrderedDictionaryADT {
             a = b;
             b = b.getParent();
         }
+        
+       
         
         return b;
         

@@ -22,6 +22,7 @@ public class BirdRecord {
         this.image = image;
     }
     
+    //getters and setters required
     public String getAbout(){
         return about;
     }
