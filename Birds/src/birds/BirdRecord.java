@@ -38,13 +38,5 @@ public class BirdRecord {
     public DataKey getDataKey(){
         return key;
     }
-    
-    public void setDataKey (DataKey key){
-        this.key = key;
-    }
-    
-   
-    
-
 
 }

@@ -11,7 +11,6 @@ package birds;
  */
 public class OrderedDictionary implements OrderedDictionaryADT {
     Node root;
-    Node past;
     
     OrderedDictionary(){
         root = null;
@@ -244,7 +243,6 @@ public class OrderedDictionary implements OrderedDictionaryADT {
             BirdRecord temps = new BirdRecord(k,null,null,null);
             insert(temps);
             Node tempPrevious = preHelper(findNode(root,temps.getDataKey()));
-            System.out.println(tempPrevious.getData().getDataKey().getBirdName());
             remove(temps.getDataKey());
             return tempPrevious.getData();
         }

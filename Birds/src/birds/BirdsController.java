@@ -259,7 +259,6 @@ public class BirdsController implements Initializable {
         stopBtn.setOpacity(1.0);
         
         String soundFile = current.getSound();
-        System.out.println(soundFile);
         Media hit = new Media(new File(soundFile).toURI().toString());
         mediaPlayer  = new MediaPlayer(hit);
         mediaPlayer.play();
